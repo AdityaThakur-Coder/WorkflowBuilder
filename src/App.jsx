@@ -5,7 +5,9 @@ import ReactFlow, {
   Background, 
   useNodesState, 
   useEdgesState,
-  MarkerType
+  MarkerType,
+  Handle,
+  Position
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import './App.css';
@@ -14,6 +16,19 @@ import './App.css';
 const CustomNode = ({ data, selected }) => {
   return (
     <div className={`custom-node ${selected ? 'selected' : ''}`}>
+      {/* Input handle (left side) */}
+      <Handle
+        type="target"
+        position={Position.Left}
+        style={{
+          background: '#667eea',
+          width: 12,
+          height: 12,
+          border: '2px solid white',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+        }}
+      />
+      
       <div className="node-header">
         <span className="node-icon">{data.icon}</span>
         <span className="node-title">{data.label}</span>
@@ -21,6 +36,19 @@ const CustomNode = ({ data, selected }) => {
       <div className="node-content">
         {data.description}
       </div>
+      
+      {/* Output handle (right side) */}
+      <Handle
+        type="source"
+        position={Position.Right}
+        style={{
+          background: '#667eea',
+          width: 12,
+          height: 12,
+          border: '2px solid white',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+        }}
+      />
     </div>
   );
 };
