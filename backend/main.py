@@ -14,10 +14,13 @@ load_dotenv()
 
 app = FastAPI(title="Workflow Builder API", version="1.0.0")
 
-# Enable CORS for frontend communication
+# ✅ Enable CORS for local and deployed frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite default port
+    allow_origins=[
+        "http://localhost:5173", 
+        "https://workflowbuilder-9.onrender.com"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

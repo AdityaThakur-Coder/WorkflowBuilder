@@ -200,7 +200,7 @@ function App() {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('http://localhost:8000/upload-document', {
+      const response = await fetch('https://workflowbuilder-9.onrender.com/upload-document', {
         method: 'POST',
         body: formData,
       });
@@ -214,7 +214,7 @@ function App() {
       
       // Generate embeddings for the uploaded document
       try {
-        const embeddingResponse = await fetch(`http://localhost:8000/generate-embeddings/${result.document_id}`, {
+        const embeddingResponse = await fetch(`https://workflowbuilder-9.onrender.com/generate-embeddings/${result.document_id}`, {
           method: 'POST',
         });
 
@@ -261,7 +261,7 @@ function App() {
     };
     
     // Try to save to backend, but don't fail if backend is down
-    fetch('http://localhost:8000/save-workflow', {
+    fetch('https://workflowbuilder-9.onrender.com/save-workflow', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -289,7 +289,7 @@ function App() {
     setCurrentMessage('');
 
     try {
-      const response = await fetch('http://localhost:8000/execute-workflow', {
+      const response = await fetch('https://workflowbuilder-9.onrender.com/execute-workflow', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
