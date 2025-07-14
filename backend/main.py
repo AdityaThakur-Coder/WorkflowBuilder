@@ -19,7 +19,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173", 
-        "https://workflowbuilder-10.onrender"
+        "https://workflowbuilder-10.onrender.com",
+        "https://workflowbuilder2.netlify.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
